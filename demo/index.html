@@ -37,7 +37,6 @@
     height: 100vh;
   }
 
-  /* ===== Slide Base ===== */
   .slide {
     position: absolute;
     top: 0; left: 0;
@@ -52,16 +51,11 @@
     padding: 6vh 8vw;
     background: var(--bg-white);
   }
-  .slide.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
+  .slide.active { opacity: 1; pointer-events: auto; }
 
-  /* ===== Common ===== */
   .slide-number {
     position: absolute;
-    top: 3vh;
-    left: 4vw;
+    top: 3vh; left: 4vw;
     font-size: clamp(12px, 1vw, 16px);
     color: var(--text-light);
     font-weight: 500;
@@ -107,13 +101,9 @@
     transform: translateY(15px);
   }
 
-  /* ===== Slide 1: Cover ===== */
+  /* Cover */
   .slide-cover { background: var(--bg-white); gap: 2.5vh; }
-  .cover-line {
-    width: 60px; height: 3px;
-    background: var(--primary);
-    opacity: 0;
-  }
+  .cover-line { width: 60px; height: 3px; background: var(--primary); opacity: 0; }
   .cover-badge {
     font-size: clamp(13px, 1vw, 18px);
     color: var(--primary);
@@ -144,7 +134,7 @@
     transform: translateY(20px);
   }
 
-  /* ===== Slide 2: Overview ===== */
+  /* Overview */
   .overview-container {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -202,30 +192,11 @@
     letter-spacing: 2px;
   }
 
-  /* ===== Challenge Pages ===== */
-  .challenge-content {
-    display: flex;
-    align-items: center;
-    gap: 4vw;
-    width: 100%;
-  }
-  .challenge-text {
-    flex: 1.2;
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  .challenge-text h2 {
-    font-size: clamp(24px, 2.4vw, 44px);
-    font-weight: 800;
-    margin-bottom: 2.5vh;
-    line-height: 1.4;
-  }
-  .challenge-text p {
-    font-size: clamp(16px, 1.3vw, 24px);
-    color: var(--text-medium);
-    line-height: 1.8;
-    margin-bottom: 1.5vh;
-  }
+  /* Challenge */
+  .challenge-content { display: flex; align-items: center; gap: 4vw; width: 100%; }
+  .challenge-text { flex: 1.2; opacity: 0; transform: translateX(-30px); }
+  .challenge-text h2 { font-size: clamp(24px, 2.4vw, 44px); font-weight: 800; margin-bottom: 2.5vh; line-height: 1.4; }
+  .challenge-text p { font-size: clamp(16px, 1.3vw, 24px); color: var(--text-medium); line-height: 1.8; margin-bottom: 1.5vh; }
   .challenge-stat {
     background: var(--accent-red-light);
     border-left: 4px solid var(--accent-red);
@@ -233,97 +204,41 @@
     border-radius: 0 12px 12px 0;
     margin-top: 2vh;
   }
-  .challenge-stat .number {
-    font-size: clamp(32px, 3vw, 56px);
-    font-weight: 900;
-    color: var(--accent-red);
+  .challenge-stat .number { font-size: clamp(32px, 3vw, 56px); font-weight: 900; color: var(--accent-red); }
+  .challenge-stat .desc { font-size: clamp(14px, 1.1vw, 20px); color: var(--text-medium); margin-top: 0.5vh; }
+  .challenge-stat.blue-stat {
+    background: var(--primary-light);
+    border-left-color: var(--primary);
   }
-  .challenge-stat .desc {
-    font-size: clamp(14px, 1.1vw, 20px);
-    color: var(--text-medium);
-    margin-top: 0.5vh;
-  }
-  .challenge-visual {
-    flex: 0.8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transform: translateX(30px);
-  }
+  .challenge-stat.blue-stat .number { color: var(--primary); }
+  .challenge-visual { flex: 0.8; display: flex; justify-content: center; align-items: center; opacity: 0; transform: translateX(30px); }
 
-  /* ===== Flow Page ===== */
-  .flow-vertical {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    width: 100%;
-    max-width: 750px;
-  }
-  .flow-item {
-    display: flex;
-    align-items: center;
-    gap: 1.8vw;
-    opacity: 0;
-    transform: translateX(-20px);
-  }
+  /* Flow */
+  .flow-vertical { display: flex; flex-direction: column; gap: 0; width: 100%; max-width: 800px; }
+  .flow-item { display: flex; align-items: center; gap: 1.8vw; opacity: 0; transform: translateX(-20px); }
   .flow-number {
-    width: clamp(48px, 3.5vw, 64px);
-    height: clamp(48px, 3.5vw, 64px);
+    width: clamp(44px, 3vw, 56px);
+    height: clamp(44px, 3vw, 56px);
     background: var(--primary);
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(18px, 1.4vw, 24px);
+    font-size: clamp(16px, 1.2vw, 22px);
     font-weight: 800;
     flex-shrink: 0;
   }
-  .flow-item-text h3 {
-    font-size: clamp(18px, 1.5vw, 28px);
-    font-weight: 700;
-    margin-bottom: 0.3vh;
-  }
-  .flow-item-text p {
-    font-size: clamp(14px, 1.2vw, 22px);
-    color: var(--text-medium);
-  }
-  .flow-connector {
-    width: 2px;
-    height: 3vh;
-    background: var(--border);
-    margin-left: clamp(23px, 1.7vw, 31px);
-  }
+  .flow-item-text h3 { font-size: clamp(16px, 1.3vw, 24px); font-weight: 700; margin-bottom: 0.2vh; }
+  .flow-item-text p { font-size: clamp(13px, 1.1vw, 20px); color: var(--text-medium); }
+  .flow-connector { width: 2px; height: 2.5vh; background: var(--border); margin-left: clamp(21px, 1.45vw, 27px); }
 
-  /* ===== Step Detail Page ===== */
-  .step-content {
-    display: flex;
-    align-items: center;
-    gap: 4vw;
-    width: 100%;
-  }
-  .step-text {
-    flex: 1.2;
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  .step-text h2 {
-    font-size: clamp(24px, 2.4vw, 44px);
-    font-weight: 800;
-    margin-bottom: 2vh;
-    line-height: 1.4;
-  }
-  .step-text p {
-    font-size: clamp(15px, 1.3vw, 24px);
-    color: var(--text-medium);
-    line-height: 1.8;
-    margin-bottom: 1.5vh;
-  }
-  .step-text ul {
-    list-style: none;
-    margin-top: 1.5vh;
-  }
+  /* Step Detail */
+  .step-content { display: flex; align-items: center; gap: 4vw; width: 100%; }
+  .step-text { flex: 1.2; opacity: 0; transform: translateX(-30px); }
+  .step-text h2 { font-size: clamp(24px, 2.4vw, 44px); font-weight: 800; margin-bottom: 2vh; line-height: 1.4; }
+  .step-text p { font-size: clamp(15px, 1.3vw, 24px); color: var(--text-medium); line-height: 1.8; margin-bottom: 1.5vh; }
+  .step-text ul { list-style: none; margin-top: 1.5vh; }
   .step-text ul li {
     font-size: clamp(15px, 1.2vw, 22px);
     color: var(--text-medium);
@@ -335,98 +250,64 @@
   .step-text ul li::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0.7em;
+    left: 0; top: 0.7em;
     width: 8px; height: 8px;
     background: var(--primary);
     border-radius: 50%;
   }
-  .step-visual {
-    flex: 0.8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transform: translateX(30px);
-  }
+  .step-visual { flex: 0.8; display: flex; justify-content: center; align-items: center; opacity: 0; transform: translateX(30px); }
 
-  /* ===== Mockup: Dashboard ===== */
-  .dashboard-mockup {
-    background: var(--bg-light);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
+  /* Info Box */
+  .info-box {
+    background: var(--primary-light);
+    border-left: 4px solid var(--primary);
+    padding: 2vh 2vw;
+    border-radius: 0 12px 12px 0;
+    margin-top: 2vh;
+  }
+  .info-box p { font-size: clamp(14px, 1.2vw, 22px); color: var(--text-dark); line-height: 1.7; }
+
+  /* Browser Frame */
+  .browser-frame {
     width: 100%;
-    max-width: 580px;
-    box-shadow: 0 4px 24px rgba(30, 64, 175, 0.08);
+    max-width: 560px;
+    opacity: 0;
+    transform: translateY(20px);
   }
-  .dash-header {
-    background: var(--primary);
-    color: white;
-    padding: 1.5vh 2vw;
-    font-size: clamp(14px, 1.1vw, 20px);
-    font-weight: 700;
+  .browser-bar {
+    background: #f1f5f9;
+    border-radius: 12px 12px 0 0;
+    padding: 8px 14px;
     display: flex;
     align-items: center;
-    gap: 0.5vw;
-  }
-  .dash-body {
-    padding: 2vh 1.5vw;
-  }
-  .dash-stat-row {
-    display: flex;
-    gap: 0.8vw;
-    margin-bottom: 1.5vh;
-  }
-  .dash-stat-card {
-    flex: 1;
-    background: white;
+    gap: 6px;
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.2vh 1vw;
-    text-align: center;
+    border-bottom: none;
   }
-  .dash-stat-card .val {
-    font-size: clamp(20px, 1.8vw, 32px);
-    font-weight: 900;
-    color: var(--primary);
-  }
-  .dash-stat-card .lbl {
-    font-size: clamp(10px, 0.75vw, 13px);
+  .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .browser-dot.red { background: #ef4444; }
+  .browser-dot.yellow { background: #f59e0b; }
+  .browser-dot.green { background: #10b981; }
+  .browser-url {
+    background: white;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 12px;
     color: var(--text-light);
-    margin-top: 0.3vh;
+    margin-left: 8px;
+    flex: 1;
+    font-family: 'Inter', monospace;
   }
-  .dash-list {
-    background: white;
+  .browser-body {
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 0 0 12px 12px;
     overflow: hidden;
+    height: 42vh;
+    position: relative;
   }
-  .dash-list-header {
-    background: var(--bg-subtle);
-    padding: 0.8vh 1vw;
-    font-size: clamp(11px, 0.85vw, 15px);
-    font-weight: 700;
-    color: var(--text-medium);
-    display: flex;
-    gap: 0.5vw;
-  }
-  .dash-list-header span:nth-child(1) { flex: 2; }
-  .dash-list-header span:nth-child(2) { flex: 1; text-align: right; }
-  .dash-list-header span:nth-child(3) { flex: 1; text-align: right; }
-  .dash-list-row {
-    padding: 0.8vh 1vw;
-    font-size: clamp(11px, 0.85vw, 15px);
-    color: var(--text-medium);
-    display: flex;
-    gap: 0.5vw;
-    border-top: 1px solid var(--border);
-  }
-  .dash-list-row span:nth-child(1) { flex: 2; font-weight: 500; color: var(--text-dark); }
-  .dash-list-row span:nth-child(2) { flex: 1; text-align: right; }
-  .dash-list-row span:nth-child(3) { flex: 1; text-align: right; color: var(--accent-green); font-weight: 700; }
+  .browser-body iframe { width: 100%; height: 100%; border: none; }
 
-  /* ===== Email Mockup ===== */
+  /* Email Mockup */
   .email-mockup {
     background: var(--bg-light);
     border: 1px solid var(--border);
@@ -453,10 +334,7 @@
     justify-content: center;
     font-size: clamp(20px, 1.4vw, 26px);
   }
-  .email-mockup-header h3 {
-    font-size: clamp(17px, 1.4vw, 24px);
-    font-weight: 700;
-  }
+  .email-mockup-header h3 { font-size: clamp(17px, 1.4vw, 24px); font-weight: 700; }
   .email-field {
     display: flex;
     gap: 0.8vw;
@@ -464,20 +342,8 @@
     font-size: clamp(14px, 1.1vw, 20px);
     align-items: center;
   }
-  .email-field .label {
-    color: var(--text-light);
-    font-weight: 600;
-    width: 4vw;
-    flex-shrink: 0;
-  }
-  .email-field .value {
-    color: var(--text-dark);
-    background: white;
-    padding: 0.8vh 1vw;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    flex: 1;
-  }
+  .email-field .label { color: var(--text-light); font-weight: 600; width: 4vw; flex-shrink: 0; }
+  .email-field .value { color: var(--text-dark); background: white; padding: 0.8vh 1vw; border-radius: 8px; border: 1px solid var(--border); flex: 1; }
   .email-body-text {
     background: white;
     border: 1px solid var(--border);
@@ -498,104 +364,15 @@
     font-size: 0.95em;
   }
 
-  /* ===== Scoring Mockup ===== */
-  .scoring-mockup {
-    background: var(--bg-light);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 3vh 2.5vw;
-    width: 100%;
-    max-width: 500px;
-  }
-  .scoring-mockup h4 {
-    font-size: clamp(15px, 1.2vw, 22px);
-    font-weight: 700;
-    margin-bottom: 2vh;
-    color: var(--text-dark);
-  }
-  .score-bar-group {
-    margin-bottom: 2vh;
-  }
-  .score-bar-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: clamp(13px, 1vw, 18px);
-    font-weight: 600;
-    margin-bottom: 0.5vh;
-    color: var(--text-medium);
-  }
-  .score-bar-track {
-    width: 100%;
-    height: 12px;
-    background: var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-  }
-  .score-bar-fill {
-    height: 100%;
-    border-radius: 6px;
-    width: 0;
-    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .score-bar-fill.rule { background: var(--primary); }
-  .score-bar-fill.ai { background: var(--accent-green); }
-  .score-bar-fill.total { background: linear-gradient(90deg, var(--primary), var(--accent-green)); }
-  .score-total {
-    text-align: center;
-    margin-top: 2vh;
-    padding-top: 2vh;
-    border-top: 1px solid var(--border);
-  }
-  .score-total .big {
-    font-size: clamp(36px, 3.5vw, 60px);
-    font-weight: 900;
-    color: var(--accent-green);
-  }
-  .score-total .lbl {
-    font-size: clamp(14px, 1.1vw, 20px);
-    color: var(--text-medium);
-    margin-top: 0.3vh;
-  }
+  /* Result Single */
+  .result-single { text-align: center; opacity: 0; transform: translateY(30px); }
+  .result-single-icon { font-size: clamp(52px, 5vw, 88px); margin-bottom: 2vh; }
+  .result-single-number { font-size: clamp(64px, 8vw, 140px); font-weight: 900; color: var(--primary); line-height: 1; margin-bottom: 1.5vh; }
+  .result-single-label { font-size: clamp(22px, 2vw, 38px); font-weight: 700; color: var(--text-dark); margin-bottom: 2vh; }
+  .result-single-desc { font-size: clamp(16px, 1.4vw, 26px); color: var(--text-medium); line-height: 1.7; max-width: 650px; margin: 0 auto; }
 
-  /* ===== Result Single Page ===== */
-  .result-single {
-    text-align: center;
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  .result-single-icon {
-    font-size: clamp(52px, 5vw, 88px);
-    margin-bottom: 2vh;
-  }
-  .result-single-number {
-    font-size: clamp(64px, 8vw, 140px);
-    font-weight: 900;
-    color: var(--primary);
-    line-height: 1;
-    margin-bottom: 1.5vh;
-  }
-  .result-single-label {
-    font-size: clamp(22px, 2vw, 38px);
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 2vh;
-  }
-  .result-single-desc {
-    font-size: clamp(16px, 1.4vw, 26px);
-    color: var(--text-medium);
-    line-height: 1.7;
-    max-width: 650px;
-    margin: 0 auto;
-  }
-
-  /* ===== Deal Portfolio ===== */
-  .deal-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2vw;
-    width: 100%;
-    margin-top: 1vh;
-  }
+  /* Deal Grid */
+  .deal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2vw; width: 100%; margin-top: 1vh; }
   .deal-card {
     background: var(--bg-light);
     border: 1px solid var(--border);
@@ -604,53 +381,16 @@
     opacity: 0;
     transform: translateY(20px);
   }
-  .deal-card .deal-title {
-    font-size: clamp(12px, 0.9vw, 16px);
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 0.8vh;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .deal-card .deal-meta {
-    font-size: clamp(11px, 0.75vw, 14px);
-    color: var(--text-light);
-    margin-bottom: 0.5vh;
-  }
-  .deal-card .deal-profit {
-    font-size: clamp(18px, 1.4vw, 26px);
-    font-weight: 900;
-    color: var(--accent-green);
-  }
-  .deal-card .deal-prices {
-    font-size: clamp(10px, 0.7vw, 13px);
-    color: var(--text-light);
-    margin-top: 0.3vh;
-  }
-  .deal-summary {
-    margin-top: 2vh;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  .deal-summary .big-number {
-    font-size: clamp(36px, 3.5vw, 64px);
-    font-weight: 900;
-    color: var(--primary);
-  }
-  .deal-summary .desc {
-    font-size: clamp(14px, 1.2vw, 22px);
-    color: var(--text-medium);
-  }
+  .deal-card .deal-title { font-size: clamp(12px, 0.9vw, 16px); font-weight: 700; color: var(--text-dark); margin-bottom: 0.8vh; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .deal-card .deal-meta { font-size: clamp(11px, 0.75vw, 14px); color: var(--text-light); margin-bottom: 0.5vh; }
+  .deal-card .deal-profit { font-size: clamp(18px, 1.4vw, 26px); font-weight: 900; color: var(--accent-green); }
+  .deal-card .deal-prices { font-size: clamp(10px, 0.7vw, 13px); color: var(--text-light); margin-top: 0.3vh; }
+  .deal-summary { margin-top: 2vh; text-align: center; opacity: 0; transform: translateY(15px); }
+  .deal-summary .big-number { font-size: clamp(36px, 3.5vw, 64px); font-weight: 900; color: var(--primary); }
+  .deal-summary .desc { font-size: clamp(14px, 1.2vw, 22px); color: var(--text-medium); }
 
-  /* ===== Schedule ===== */
-  .schedule-container {
-    display: flex;
-    gap: 2.5vw;
-    width: 100%;
-    margin-top: 1vh;
-  }
+  /* Schedule */
+  .schedule-container { display: flex; gap: 2.5vw; width: 100%; margin-top: 1vh; }
   .schedule-item {
     flex: 1;
     background: var(--bg-light);
@@ -662,32 +402,16 @@
     position: relative;
     overflow: hidden;
   }
-  .schedule-item::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-  }
+  .schedule-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
   .schedule-item:nth-child(1)::before { background: var(--primary); }
   .schedule-item:nth-child(2)::before { background: var(--accent-green); }
   .schedule-item:nth-child(3)::before { background: var(--accent-orange); }
-  .schedule-month {
-    font-size: clamp(14px, 1.1vw, 20px);
-    font-weight: 700;
-    margin-bottom: 1vh;
-  }
+  .schedule-month { font-size: clamp(14px, 1.1vw, 20px); font-weight: 700; margin-bottom: 1vh; }
   .schedule-item:nth-child(1) .schedule-month { color: var(--primary); }
   .schedule-item:nth-child(2) .schedule-month { color: var(--accent-green); }
   .schedule-item:nth-child(3) .schedule-month { color: var(--accent-orange); }
-  .schedule-item h3 {
-    font-size: clamp(18px, 1.5vw, 28px);
-    font-weight: 800;
-    margin-bottom: 2vh;
-    line-height: 1.4;
-  }
-  .schedule-item ul {
-    list-style: none;
-  }
+  .schedule-item h3 { font-size: clamp(18px, 1.5vw, 28px); font-weight: 800; margin-bottom: 2vh; line-height: 1.4; }
+  .schedule-item ul { list-style: none; }
   .schedule-item ul li {
     font-size: clamp(14px, 1.1vw, 20px);
     color: var(--text-medium);
@@ -695,42 +419,14 @@
     padding-left: 1.5vw;
     position: relative;
   }
-  .schedule-item ul li::before {
-    content: '\2713';
-    position: absolute;
-    left: 0;
-    color: var(--accent-green);
-    font-weight: 700;
-  }
+  .schedule-item ul li::before { content: '\2713'; position: absolute; left: 0; color: var(--accent-green); font-weight: 700; }
 
-  /* ===== CTA ===== */
-  .slide-cta {
-    background: var(--bg-light);
-    gap: 2.5vh;
-  }
-  .cta-icon-big {
-    font-size: clamp(52px, 5vw, 90px);
-    opacity: 0;
-    transform: scale(0.5);
-    margin-bottom: 1vh;
-  }
-  .cta-title-big {
-    font-size: clamp(30px, 3.5vw, 64px);
-    font-weight: 900;
-    color: var(--text-dark);
-    text-align: center;
-    line-height: 1.3;
-    opacity: 0;
-    transform: translateY(20px);
-  }
+  /* CTA */
+  .slide-cta { background: var(--bg-light); gap: 2.5vh; }
+  .cta-icon-big { font-size: clamp(52px, 5vw, 90px); opacity: 0; transform: scale(0.5); margin-bottom: 1vh; }
+  .cta-title-big { font-size: clamp(30px, 3.5vw, 64px); font-weight: 900; color: var(--text-dark); text-align: center; line-height: 1.3; opacity: 0; transform: translateY(20px); }
   .cta-title-big .accent { color: var(--primary); }
-  .cta-sub-big {
-    font-size: clamp(16px, 1.4vw, 26px);
-    color: var(--text-medium);
-    text-align: center;
-    opacity: 0;
-    transform: translateY(15px);
-  }
+  .cta-sub-big { font-size: clamp(16px, 1.4vw, 26px); color: var(--text-medium); text-align: center; opacity: 0; transform: translateY(15px); }
   .cta-button-big {
     padding: 2.2vh 4vw;
     background: var(--primary);
@@ -747,69 +443,32 @@
   }
   .cta-button-big:hover { background: #1e3a8a; }
 
-  /* ===== Info Box ===== */
-  .info-box {
-    background: var(--primary-light);
-    border-left: 4px solid var(--primary);
-    padding: 2vh 2vw;
-    border-radius: 0 12px 12px 0;
-    margin-top: 2vh;
+  /* Scrape Visual */
+  .scrape-visual-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
   }
-  .info-box p {
-    font-size: clamp(14px, 1.2vw, 22px);
-    color: var(--text-dark);
-    line-height: 1.7;
-  }
+  .scrape-header { background: var(--accent-green); color: white; padding: 1.2vh 1.5vw; font-size: clamp(13px, 1vw, 18px); font-weight: 700; }
+  .scrape-row { display: flex; align-items: center; gap: 0.8vw; padding: 1vh 1.5vw; border-top: 1px solid var(--border); font-size: clamp(12px, 0.9vw, 16px); }
+  .scrape-row .area-tag { background: var(--primary-light); color: var(--primary); padding: 0.3vh 0.6vw; border-radius: 4px; font-size: clamp(10px, 0.7vw, 13px); font-weight: 600; white-space: nowrap; }
+  .scrape-row .prop-name { flex: 1; font-weight: 500; color: var(--text-dark); }
+  .scrape-row .prop-price { font-weight: 700; color: var(--accent-green); white-space: nowrap; }
 
-  /* ===== Animations ===== */
+  /* Animations */
   @keyframes slideIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes slideOut { from { opacity: 1; } to { opacity: 0; } }
 
-  /* ===== Progress Bar ===== */
-  .progress-bar {
-    position: fixed;
-    bottom: 0; left: 0;
-    height: 3px;
-    background: var(--primary);
-    z-index: 100;
-    transition: width 0.3s ease;
-  }
+  .progress-bar { position: fixed; bottom: 0; left: 0; height: 3px; background: var(--primary); z-index: 100; transition: width 0.3s ease; }
+  .slide-indicators { position: fixed; right: 1.5vw; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.6vh; z-index: 100; }
+  .slide-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: all 0.3s ease; cursor: pointer; }
+  .slide-dot.active { background: var(--primary); transform: scale(1.4); }
 
-  /* ===== Indicators ===== */
-  .slide-indicators {
-    position: fixed;
-    right: 1.5vw;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 0.6vh;
-    z-index: 100;
-  }
-  .slide-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--border);
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-  .slide-dot.active {
-    background: var(--primary);
-    transform: scale(1.4);
-  }
-
-  /* ===== Controls ===== */
-  .controls {
-    position: fixed;
-    bottom: 2vh;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0.8vw;
-    z-index: 100;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
+  .controls { position: fixed; bottom: 2vh; left: 50%; transform: translateX(-50%); display: flex; gap: 0.8vw; z-index: 100; opacity: 0; transition: opacity 0.3s ease; }
   body:hover .controls { opacity: 1; }
   .ctrl-btn {
     width: clamp(36px, 2.4vw, 46px);
@@ -825,61 +484,10 @@
     font-size: clamp(12px, 0.9vw, 16px);
     transition: all 0.2s ease;
   }
-  .ctrl-btn:hover {
-    background: var(--primary-light);
-    border-color: var(--primary);
-  }
+  .ctrl-btn:hover { background: var(--primary-light); border-color: var(--primary); }
 
-  /* ===== Page Counter ===== */
-  .page-counter {
-    position: fixed;
-    bottom: 2vh;
-    right: 4vw;
-    font-size: clamp(12px, 0.9vw, 15px);
-    color: var(--text-light);
-    font-weight: 500;
-    z-index: 100;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
+  .page-counter { position: fixed; bottom: 2vh; right: 4vw; font-size: clamp(12px, 0.9vw, 15px); color: var(--text-light); font-weight: 500; z-index: 100; opacity: 0; transition: opacity 0.3s ease; }
   body:hover .page-counter { opacity: 1; }
-
-  /* ===== Scrape Visual ===== */
-  .scrape-visual-box {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  }
-  .scrape-header {
-    background: var(--accent-green);
-    color: white;
-    padding: 1.2vh 1.5vw;
-    font-size: clamp(13px, 1vw, 18px);
-    font-weight: 700;
-  }
-  .scrape-row {
-    display: flex;
-    align-items: center;
-    gap: 0.8vw;
-    padding: 1vh 1.5vw;
-    border-top: 1px solid var(--border);
-    font-size: clamp(12px, 0.9vw, 16px);
-  }
-  .scrape-row .area-tag {
-    background: var(--primary-light);
-    color: var(--primary);
-    padding: 0.3vh 0.6vw;
-    border-radius: 4px;
-    font-size: clamp(10px, 0.7vw, 13px);
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .scrape-row .prop-name { flex: 1; font-weight: 500; color: var(--text-dark); }
-  .scrape-row .prop-price { font-weight: 700; color: var(--accent-green); white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -903,7 +511,8 @@
   </div>
   <div class="cover-sub" data-anim="fadeInUp" data-delay="900">
     汎用査定ではなく、御社の過去取引を学習するAI。<br>
-    「この物件は御社にとって買いか」をスコアで判定します。
+    「この物件は御社にとって買いか」をスコアで判定し、<br>
+    投資分析レポートまで自動生成します。
   </div>
 </div>
 
@@ -919,12 +528,12 @@
         <span>物件情報が複数サイトに分散している</span>
       </div>
       <div class="overview-item">
-        <span class="icon">&#9203;</span>
-        <span>手動での物件精査に膨大な時間がかかる</span>
+        <span class="icon">&#128100;</span>
+        <span>判断基準がベテラン個人の経験に依存</span>
       </div>
       <div class="overview-item">
-        <span class="icon">&#128100;</span>
-        <span>過去の取引知見がベテラン個人に依存</span>
+        <span class="icon">&#128202;</span>
+        <span>投資判断に必要な数値分析に手間がかかる</span>
       </div>
     </div>
     <div class="overview-arrow" data-anim="fadeIn" data-delay="700">
@@ -936,19 +545,19 @@
       <h3>&#10004; 買取AIの解決策</h3>
       <div class="overview-item">
         <span class="icon">&#129302;</span>
-        <span>SUUMOから関東圏の物件を自動収集</span>
-      </div>
-      <div class="overview-item">
-        <span class="icon">&#128202;</span>
-        <span>ルール+AIで条件マッチングを自動化</span>
+        <span>SUUMO等の複数サイトから物件を自動収集</span>
       </div>
       <div class="overview-item">
         <span class="icon">&#128218;</span>
-        <span>13件の過去取引データでAIが学習</span>
+        <span>過去取引データでAIが御社の仕入れ基準を学習</span>
+      </div>
+      <div class="overview-item">
+        <span class="icon">&#128202;</span>
+        <span>マッチ物件に対してAI投資分析レポートを自動生成</span>
       </div>
       <div class="overview-item">
         <span class="icon">&#128233;</span>
-        <span>マッチ物件を自動でメール通知</span>
+        <span>条件に合う物件を自動でメール通知</span>
       </div>
     </div>
   </div>
@@ -962,20 +571,20 @@
   <div class="overview-container" style="grid-template-columns:1fr 1fr 1fr;">
     <div class="overview-box" data-anim="fadeInUp" data-delay="400" style="border-top:4px solid var(--text-light);">
       <h3 style="color:var(--text-medium);font-size:clamp(16px,1.3vw,24px);">Gate. / エステートテクノロジーズ</h3>
-      <div class="overview-item"><span class="icon">&#128202;</span><span><strong>汎用的な市場査定</strong><br>2.5億件〜6,000万件の公開データで「市場価格」を算出</span></div>
+      <div class="overview-item"><span class="icon">&#128202;</span><span><strong>汎用的な市場査定</strong><br>公開データで「市場価格」を算出</span></div>
       <div class="overview-item"><span class="icon">&#128176;</span><span>「この物件の相場はいくらか」に回答</span></div>
       <div style="background:var(--bg-subtle);border-radius:8px;padding:1.2vh 1vw;font-size:clamp(13px,1vw,18px);color:var(--text-light);text-align:center;margin-top:1vh;">汎用 = 全社共通の結果</div>
     </div>
     <div class="overview-box" data-anim="fadeInUp" data-delay="600" style="border-top:4px solid var(--text-light);">
       <h3 style="color:var(--text-medium);font-size:clamp(16px,1.3vw,24px);">キマール / いえうり</h3>
-      <div class="overview-item"><span class="icon">&#129309;</span><span><strong>売主と買主のマッチング</strong><br>プラットフォーム上で物件と業者を結びつける</span></div>
-      <div class="overview-item"><span class="icon">&#128101;</span><span>「売りたい人」と「買いたい人」を仲介</span></div>
+      <div class="overview-item"><span class="icon">&#129309;</span><span><strong>売主と買主のマッチング</strong><br>プラットフォーム上で物件と業者を仲介</span></div>
+      <div class="overview-item"><span class="icon">&#128101;</span><span>「売りたい人」と「買いたい人」を結ぶ</span></div>
       <div style="background:var(--bg-subtle);border-radius:8px;padding:1.2vh 1vw;font-size:clamp(13px,1vw,18px);color:var(--text-light);text-align:center;margin-top:1vh;">プラットフォーム依存</div>
     </div>
     <div class="overview-box" data-anim="fadeInUp" data-delay="800" style="border-top:4px solid var(--primary);box-shadow:0 4px 20px rgba(30,64,175,0.12);">
       <h3 style="color:var(--primary);font-size:clamp(16px,1.3vw,24px);">&#11088; 買取AI（本ツール）</h3>
-      <div class="overview-item"><span class="icon">&#129302;</span><span><strong>御社の仕入れ基準をAI化</strong><br>自社の過去取引データを学習し「御社にとって買いか」を判定</span></div>
-      <div class="overview-item"><span class="icon">&#127919;</span><span>取引を重ねるほどAIが賢くなるパーソナライズドスコアリング</span></div>
+      <div class="overview-item"><span class="icon">&#129302;</span><span><strong>御社の仕入れ基準をAI化</strong><br>過去取引を学習し「御社にとって買いか」を判定</span></div>
+      <div class="overview-item"><span class="icon">&#128200;</span><span><strong>投資分析レポートまで自動生成</strong><br>購入価格・売却想定・ROI・リスクを即座に算出</span></div>
       <div style="background:var(--primary-light);border-radius:8px;padding:1.2vh 1vw;font-size:clamp(13px,1vw,18px);color:var(--primary);text-align:center;margin-top:1vh;font-weight:700;">御社専用 = 競合優位性</div>
     </div>
   </div>
@@ -1033,42 +642,46 @@
   </div>
 </div>
 
-<!-- ===== SLIDE 5: CHALLENGE 2 ===== -->
+<!-- ===== SLIDE 5: CHALLENGE 2 (softened) ===== -->
 <div class="slide" id="slide5">
   <div class="slide-number">04</div>
   <div class="section-label red" data-anim="fadeInUp" data-delay="200">&#35506;&#38988; &#9313;</div>
   <div class="challenge-content">
     <div class="challenge-text" data-anim="fadeInLeft" data-delay="400">
-      <h2>手動での物件精査に<br>膨大な時間がかかる</h2>
+      <h2>手動でも確認は可能だが<br>「判断の質」にバラツキが出る</h2>
       <p>
-        価格、利回り、エリア、築年数、構造、間取り...
-        条件に合う物件を1件ずつ確認し、
-        買取判断をするには膨大な手間がかかります。
+        物件チェック自体はそこまで時間がかからないかもしれません。
+        ただし、確認する担当者によって判断基準がブレたり、
+        疲労やバイアスで見落としが発生するのが課題です。
       </p>
       <p>
-        スピードが命の買取再販ビジネスで、
-        この遅れは致命的な機会損失です。
+        AIは一貫した基準で全物件を評価し、
+        「御社にとっての優良物件」を確実にピックアップします。
       </p>
-      <div class="challenge-stat">
-        <div class="number">1件あたり約15分</div>
-        <div class="desc">物件の詳細確認・買取判断にかかる平均時間</div>
+      <div class="challenge-stat blue-stat">
+        <div class="number">一貫性と網羅性</div>
+        <div class="desc">AIが解決するのは「時間」だけでなく「判断品質の均一化」</div>
       </div>
     </div>
     <div class="challenge-visual" data-anim="fadeInRight" data-delay="600">
       <div style="text-align:center;">
-        <div style="font-size:clamp(60px,6vw,100px);margin-bottom:2vh;">&#9203;</div>
-        <div style="display:flex;gap:1.5vw;justify-content:center;margin-bottom:2vh;">
+        <div style="display:flex;gap:3vw;justify-content:center;margin-bottom:3vh;">
           <div style="text-align:center;">
-            <div style="font-size:clamp(28px,2.5vw,46px);font-weight:900;color:var(--accent-red);">8時間</div>
-            <div style="font-size:clamp(13px,1vw,18px);color:var(--text-light);margin-top:0.5vh;">手動チェック/日</div>
+            <div style="font-size:clamp(40px,4vw,60px);">&#128100;</div>
+            <div style="font-size:clamp(14px,1.1vw,20px);font-weight:700;color:var(--accent-orange);margin-top:1vh;">手動チェック</div>
+            <div style="font-size:clamp(12px,0.9vw,16px);color:var(--text-light);margin-top:0.5vh;">判断基準がブレる</div>
+            <div style="font-size:clamp(12px,0.9vw,16px);color:var(--text-light);">疲労で見落とし</div>
+            <div style="font-size:clamp(12px,0.9vw,16px);color:var(--text-light);">属人的</div>
           </div>
-          <div style="font-size:clamp(24px,2vw,40px);color:var(--text-light);align-self:center;">&#8594;</div>
+          <div style="font-size:clamp(24px,2vw,40px);color:var(--text-light);align-self:center;">vs</div>
           <div style="text-align:center;">
-            <div style="font-size:clamp(28px,2.5vw,46px);font-weight:900;color:var(--accent-red);">32件</div>
-            <div style="font-size:clamp(13px,1vw,18px);color:var(--text-light);margin-top:0.5vh;">最大チェック数</div>
+            <div style="font-size:clamp(40px,4vw,60px);">&#129302;</div>
+            <div style="font-size:clamp(14px,1.1vw,20px);font-weight:700;color:var(--accent-green);margin-top:1vh;">AIチェック</div>
+            <div style="font-size:clamp(12px,0.9vw,16px);color:var(--accent-green);">基準が一定</div>
+            <div style="font-size:clamp(12px,0.9vw,16px);color:var(--accent-green);">全件を網羅</div>
+            <div style="font-size:clamp(12px,0.9vw,16px);color:var(--accent-green);">再現可能</div>
           </div>
         </div>
-        <div style="font-size:clamp(14px,1.1vw,20px);color:var(--text-light);">優良物件を見逃す可能性大</div>
       </div>
     </div>
   </div>
@@ -1113,7 +726,7 @@
   </div>
 </div>
 
-<!-- ===== SLIDE 7: FLOW OVERVIEW ===== -->
+<!-- ===== SLIDE 7: FLOW OVERVIEW (5 steps) ===== -->
 <div class="slide" id="slide7">
   <div class="slide-number">06</div>
   <div class="section-label blue" data-anim="fadeInUp" data-delay="200">SYSTEM FLOW</div>
@@ -1122,54 +735,66 @@
     <div class="flow-item" data-anim="fadeInLeft" data-delay="500">
       <div class="flow-number">1</div>
       <div class="flow-item-text">
-        <h3>物件情報を自動収集</h3>
-        <p>SUUMOから関東圏の中古マンション情報を自動スクレイピング</p>
+        <h3>複数サイトから物件情報を自動収集</h3>
+        <p>SUUMO等のポータルサイトから関東圏の物件を自動スクレイピング</p>
       </div>
     </div>
     <div class="flow-connector"></div>
-    <div class="flow-item" data-anim="fadeInLeft" data-delay="700">
+    <div class="flow-item" data-anim="fadeInLeft" data-delay="650">
       <div class="flow-number">2</div>
       <div class="flow-item-text">
-        <h3>ルールベースで条件マッチング</h3>
-        <p>エリア・価格・利回り・築年数など設定した条件で自動フィルタリング</p>
+        <h3>ルール + AIで条件マッチング</h3>
+        <p>エリア・価格・利回り等のルール + 過去取引との類似度をAIが算出</p>
       </div>
     </div>
     <div class="flow-connector"></div>
-    <div class="flow-item" data-anim="fadeInLeft" data-delay="900">
+    <div class="flow-item" data-anim="fadeInLeft" data-delay="800">
       <div class="flow-number">3</div>
-      <div class="flow-item-text">
-        <h3>AIが過去取引と類似度を算出</h3>
-        <p>13件の実績データとの類似性をAIが分析してスコアリング</p>
-      </div>
-    </div>
-    <div class="flow-connector"></div>
-    <div class="flow-item" data-anim="fadeInLeft" data-delay="1100">
-      <div class="flow-number">4</div>
       <div class="flow-item-text">
         <h3>マッチ物件を自動通知</h3>
         <p>閾値を超えた物件をメール・ダッシュボードでリアルタイム通知</p>
       </div>
     </div>
+    <div class="flow-connector"></div>
+    <div class="flow-item" data-anim="fadeInLeft" data-delay="950" style="background:var(--primary-light);border-radius:12px;padding:1.5vh 1.5vw;">
+      <div class="flow-number" style="background:var(--accent-green);">4</div>
+      <div class="flow-item-text">
+        <h3>AI投資分析レポート自動生成</h3>
+        <p>GPT-4oが購入推奨価格・売却想定・ROI・リスク評価を即座に算出</p>
+      </div>
+    </div>
+    <div class="flow-connector"></div>
+    <div class="flow-item" data-anim="fadeInLeft" data-delay="1100">
+      <div class="flow-number">5</div>
+      <div class="flow-item-text">
+        <h3>投資委員会での意思決定</h3>
+        <p>データに基づく客観的な投資判断で、再現性のある仕入れを実現</p>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ===== SLIDE 8: STEP 1 - SCRAPING ===== -->
+<!-- ===== SLIDE 8: STEP 1 - SCRAPING (multi-source) ===== -->
 <div class="slide" id="slide8">
   <div class="slide-number">07</div>
   <div class="section-label blue" data-anim="fadeInUp" data-delay="200">STEP 1</div>
   <div class="step-content">
     <div class="step-text" data-anim="fadeInLeft" data-delay="400">
-      <h2>SUUMOから<br>物件情報を自動収集</h2>
+      <h2>複数サイトから<br>物件情報を自動収集</h2>
       <p>
-        関東圏の主要10エリアを定期的に巡回し、
-        中古マンション情報を自動取得します。
+        現在SUUMOの関東圏10エリアに対応。
+        今後HOME'S・楽待・健美家・国交省不動産情報ライブラリ等、
+        対応ソースを順次拡大予定です。
       </p>
       <ul>
         <li>渋谷区・新宿区・港区・世田谷区・品川区</li>
         <li>杉並区・豊島区・横浜市・さいたま市・千葉市</li>
-        <li>1回のスキャンで最大30ページ分を処理</li>
+        <li>ソースの追加はプラグイン形式で容易に拡張可能</li>
         <li>重複チェック済み、新着物件のみ保存</li>
       </ul>
+      <div class="info-box">
+        <p>&#128161; 対応予定: HOME'S / 楽待 / 健美家 / 国交省 不動産情報ライブラリAPI（公的データ）</p>
+      </div>
     </div>
     <div class="step-visual" data-anim="fadeInRight" data-delay="600">
       <div class="scrape-visual-box">
@@ -1204,7 +829,7 @@
   </div>
 </div>
 
-<!-- ===== SLIDE 9: STEP 2 - AI MATCHING ===== -->
+<!-- ===== SLIDE 9: STEP 2 - MATCHING (with actual dashboard) ===== -->
 <div class="slide" id="slide9">
   <div class="slide-number">08</div>
   <div class="section-label blue" data-anim="fadeInUp" data-delay="200">STEP 2</div>
@@ -1218,46 +843,23 @@
       </p>
       <ul>
         <li>ルールスコア：エリア・価格・利回り・築年数</li>
-        <li>AIスコア：過去13件の取引との類似度</li>
-        <li>閾値を超えた物件のみ通知</li>
+        <li>AIスコア：過去取引との類似度（OpenAI）</li>
+        <li>閾値0.65以上の物件のみ通知対象</li>
       </ul>
       <div class="info-box">
         <p>&#128161; AI未設定でもルールスコアのみで動作。段階的にAIを導入可能。</p>
       </div>
     </div>
     <div class="step-visual" data-anim="fadeInRight" data-delay="600">
-      <div class="scoring-mockup" id="scoringMockup">
-        <h4>&#128202; マッチングスコア</h4>
-        <div class="score-bar-group">
-          <div class="score-bar-label">
-            <span>ルールスコア</span>
-            <span id="ruleScoreVal">0%</span>
-          </div>
-          <div class="score-bar-track">
-            <div class="score-bar-fill rule" id="ruleBar"></div>
-          </div>
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <div class="browser-dot red"></div>
+          <div class="browser-dot yellow"></div>
+          <div class="browser-dot green"></div>
+          <div class="browser-url">localhost:3000/dashboard/properties</div>
         </div>
-        <div class="score-bar-group">
-          <div class="score-bar-label">
-            <span>AIスコア（過去取引類似度）</span>
-            <span id="aiScoreVal">0%</span>
-          </div>
-          <div class="score-bar-track">
-            <div class="score-bar-fill ai" id="aiBar"></div>
-          </div>
-        </div>
-        <div class="score-bar-group">
-          <div class="score-bar-label">
-            <span>総合スコア</span>
-            <span id="totalScoreVal">0%</span>
-          </div>
-          <div class="score-bar-track">
-            <div class="score-bar-fill total" id="totalBar"></div>
-          </div>
-        </div>
-        <div class="score-total">
-          <div class="big" id="scoreResult">&#8212;</div>
-          <div class="lbl">マッチ判定</div>
+        <div class="browser-body">
+          <iframe src="http://localhost:3000/dashboard/properties" loading="lazy"></iframe>
         </div>
       </div>
     </div>
@@ -1308,47 +910,70 @@
   </div>
 </div>
 
-<!-- ===== SLIDE 11: RESULT 1 ===== -->
+<!-- ===== SLIDE 11: STEP 4 - INVESTMENT ANALYSIS (NEW) ===== -->
 <div class="slide" id="slide11">
   <div class="slide-number">10</div>
+  <div class="section-label green" data-anim="fadeInUp" data-delay="200">STEP 4 - NEW</div>
+  <div class="step-content">
+    <div class="step-text" data-anim="fadeInLeft" data-delay="400">
+      <h2>AI投資分析レポート<br>をワンクリックで生成</h2>
+      <p>
+        マッチ物件に対して、GPT-4oが過去の取引実績をもとに
+        プロの投資委員会向けレポートを自動生成します。
+      </p>
+      <ul>
+        <li>取得コスト詳細（仲介手数料・登免税・取得税）</li>
+        <li>リノベーション計画（内訳・工期・バリューアップ戦略）</li>
+        <li>3シナリオ分析（楽観・基準・悲観）</li>
+        <li>収益指標（ROI・MOIC・IRR・損益分岐価格）</li>
+        <li>リスク評価マトリクス（確率 x 影響度 x 対策）</li>
+        <li>出口戦略（主要・代替）</li>
+      </ul>
+    </div>
+    <div class="step-visual" data-anim="fadeInRight" data-delay="600">
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <div class="browser-dot red"></div>
+          <div class="browser-dot yellow"></div>
+          <div class="browser-dot green"></div>
+          <div class="browser-url">localhost:3000/dashboard/analysis</div>
+        </div>
+        <div class="browser-body">
+          <iframe src="http://localhost:3000/dashboard/analysis" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 12: RESULT 1 ===== -->
+<div class="slide" id="slide12">
+  <div class="slide-number">11</div>
   <div class="section-label green" data-anim="fadeInUp" data-delay="200">&#23566;&#20837;&#21177;&#26524; &#9312;</div>
   <div class="result-single" data-anim="fadeInUp" data-delay="400">
     <div class="result-single-icon">&#128200;</div>
     <div class="result-single-number" id="counter1">0</div>
-    <div class="result-single-label">物件/回 を自動スクレイピング（実測値）</div>
+    <div class="result-single-label">物件/回 を自動スクレイピング</div>
     <div class="result-single-desc">
-      関東圏10エリア×最大3ページを自動巡回。<br>
-      実際のSUUMOスクレイピングで540件を1回で取得。
+      関東圏10エリアを自動巡回。<br>
+      実際のSUUMOスクレイピングで540件を1回で取得。<br>
+      対応ソース追加でさらに拡大可能。
     </div>
   </div>
 </div>
 
-<!-- ===== SLIDE 12: RESULT 2 ===== -->
-<div class="slide" id="slide12">
-  <div class="slide-number">11</div>
-  <div class="section-label green" data-anim="fadeInUp" data-delay="200">&#23566;&#20837;&#21177;&#26524; &#9313;</div>
-  <div class="result-single" data-anim="fadeInUp" data-delay="400">
-    <div class="result-single-icon">&#9203;</div>
-    <div class="result-single-number" id="counter2">0%</div>
-    <div class="result-single-label">物件精査の時間を削減</div>
-    <div class="result-single-desc">
-      条件マッチングを完全自動化。<br>
-      1日8時間の手作業が数分で完了します。
-    </div>
-  </div>
-</div>
-
-<!-- ===== SLIDE 13: RESULT 3 ===== -->
+<!-- ===== SLIDE 13: RESULT 2 ===== -->
 <div class="slide" id="slide13">
   <div class="slide-number">12</div>
-  <div class="section-label green" data-anim="fadeInUp" data-delay="200">&#23566;&#20837;&#21177;&#26524; &#9314;</div>
+  <div class="section-label green" data-anim="fadeInUp" data-delay="200">&#23566;&#20837;&#21177;&#26524; &#9313;</div>
   <div class="result-single" data-anim="fadeInUp" data-delay="400">
     <div class="result-single-icon">&#128176;</div>
-    <div class="result-single-number" id="counter3">0%</div>
+    <div class="result-single-number" id="counter2">0%</div>
     <div class="result-single-label">過去取引の平均利益率</div>
     <div class="result-single-desc">
       13件の過去取引ポートフォリオをAIが学習。<br>
-      利益を出せる物件パターンを数値化します。
+      利益を出せる物件パターンを数値化し、<br>
+      投資分析レポートで再現可能な判断基準を提供。
     </div>
   </div>
 </div>
@@ -1414,27 +1039,45 @@
   </div>
 </div>
 
-<!-- ===== SLIDE 15: LIVE DASHBOARD ===== -->
+<!-- ===== SLIDE 15: LIVE DASHBOARD - Properties ===== -->
 <div class="slide" id="slide15">
   <div class="slide-number">14</div>
   <div class="section-label green" data-anim="fadeInUp" data-delay="200">LIVE DEMO</div>
-  <div class="slide-title" data-anim="fadeInUp" data-delay="300">実際のダッシュボード</div>
-  <div style="width:90%;max-width:1100px;opacity:0;transform:translateY(20px;" data-anim="fadeInUp" data-delay="500">
-    <div style="background:#f1f5f9;border-radius:12px 12px 0 0;padding:8px 14px;display:flex;align-items:center;gap:6px;border:1px solid var(--border);border-bottom:none;">
-      <div style="width:10px;height:10px;border-radius:50%;background:#ef4444;"></div>
-      <div style="width:10px;height:10px;border-radius:50%;background:#f59e0b;"></div>
-      <div style="width:10px;height:10px;border-radius:50%;background:#10b981;"></div>
-      <div style="background:white;border-radius:4px;padding:4px 12px;font-size:13px;color:var(--text-light);margin-left:8px;flex:1;font-family:'Inter',monospace;">localhost:3000/dashboard/properties</div>
+  <div class="slide-title" data-anim="fadeInUp" data-delay="300">実際のダッシュボード（物件一覧）</div>
+  <div style="width:90%;max-width:1100px;" data-anim="fadeInUp" data-delay="500">
+    <div class="browser-bar">
+      <div class="browser-dot red"></div>
+      <div class="browser-dot yellow"></div>
+      <div class="browser-dot green"></div>
+      <div class="browser-url">localhost:3000/dashboard/properties</div>
     </div>
-    <div style="border:1px solid var(--border);border-radius:0 0 12px 12px;overflow:hidden;height:55vh;position:relative;">
+    <div style="border:1px solid var(--border);border-radius:0 0 12px 12px;overflow:hidden;height:55vh;">
       <iframe src="http://localhost:3000/dashboard/properties" style="width:100%;height:100%;border:none;" loading="lazy"></iframe>
     </div>
   </div>
 </div>
 
-<!-- ===== SLIDE 16: SCHEDULE ===== -->
+<!-- ===== SLIDE 16: LIVE DASHBOARD - Analysis ===== -->
 <div class="slide" id="slide16">
   <div class="slide-number">15</div>
+  <div class="section-label green" data-anim="fadeInUp" data-delay="200">LIVE DEMO</div>
+  <div class="slide-title" data-anim="fadeInUp" data-delay="300">投資分析レポート画面</div>
+  <div style="width:90%;max-width:1100px;" data-anim="fadeInUp" data-delay="500">
+    <div class="browser-bar">
+      <div class="browser-dot red"></div>
+      <div class="browser-dot yellow"></div>
+      <div class="browser-dot green"></div>
+      <div class="browser-url">localhost:3000/dashboard/analysis</div>
+    </div>
+    <div style="border:1px solid var(--border);border-radius:0 0 12px 12px;overflow:hidden;height:55vh;">
+      <iframe src="http://localhost:3000/dashboard/analysis" style="width:100%;height:100%;border:none;" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 17: SCHEDULE ===== -->
+<div class="slide" id="slide17">
+  <div class="slide-number">16</div>
   <div class="section-label orange" data-anim="fadeInUp" data-delay="200">SCHEDULE</div>
   <div class="slide-title" data-anim="fadeInUp" data-delay="300">導入スケジュール</div>
   <div class="schedule-container">
@@ -1454,8 +1097,8 @@
       <ul>
         <li>マッチング閾値の最適化</li>
         <li>AI重み配分の調整</li>
-        <li>メール通知の設定</li>
-        <li>定期実行スケジュール設定</li>
+        <li>投資分析レポートの検証</li>
+        <li>対応ソースの追加</li>
       </ul>
     </div>
     <div class="schedule-item" data-anim="fadeInUp" data-delay="900">
@@ -1463,22 +1106,23 @@
       <h3>本格運用・拡張</h3>
       <ul>
         <li>取引データの継続蓄積</li>
-        <li>対象サイトの追加</li>
+        <li>HOME'S・楽待等の追加対応</li>
         <li>マッチング精度の継続改善</li>
-        <li>レポート機能の拡充</li>
+        <li>分析レポートの高度化</li>
       </ul>
     </div>
   </div>
 </div>
 
-<!-- ===== SLIDE 17: CTA ===== -->
-<div class="slide slide-cta" id="slide17">
+<!-- ===== SLIDE 18: CTA ===== -->
+<div class="slide slide-cta" id="slide18">
   <div class="cta-icon-big" data-anim="fadeInScale" data-delay="300">&#127968;</div>
   <div class="cta-title-big" data-anim="fadeInUp" data-delay="600">
     <span class="accent">買取AI</span>で<br>物件発掘を自動化しませんか？
   </div>
   <div class="cta-sub-big" data-anim="fadeInUp" data-delay="900">
-    まずはデモ環境でお試しいただけます
+    物件収集からAI投資分析レポートまで、<br>
+    御社の仕入れ判断をトータルにサポートします
   </div>
   <button class="cta-button-big" data-anim="fadeInUp" data-delay="1200">
     お問い合わせはこちら &#10132;
@@ -1486,17 +1130,16 @@
 </div>
 
 <script>
-  const totalSlides = 17;
+  const totalSlides = 18;
   let currentSlide = 0;
   let autoPlayTimer = null;
   let isAutoPlaying = true;
   const slideDurations = [
-    4000, 6000, 7000, 6000, 6000, 6000, 6000,
-    7000, 7000, 6000,
-    5000, 5000, 5000, 7000, 8000, 6000, 5000
+    4000, 6000, 7000, 6000, 6000, 6000, 7000,
+    7000, 7000, 6000, 7000,
+    5000, 5000, 7000, 8000, 8000, 6000, 5000
   ];
 
-  // Create indicators
   const indicatorEl = document.getElementById('slideIndicators');
   for (let i = 0; i < totalSlides; i++) {
     const dot = document.createElement('div');
@@ -1560,17 +1203,13 @@
 
       // Trigger special animations
       if (currentSlide === 7) startScrapeAnimation();
-      if (currentSlide === 8) startScoringAnimation();
-      if (currentSlide === 10) startCounterAnimation('counter1', 0, 540, 2000, '+');
-      if (currentSlide === 11) startCounterAnimation('counter2', 0, 95, 2000, '%');
-      if (currentSlide === 12) startCounterAnimation('counter3', 0, 33, 2000, '%');
+      if (currentSlide === 11) startCounterAnimation('counter1', 0, 540, 2000, '+');
+      if (currentSlide === 12) startCounterAnimation('counter2', 0, 33, 2000, '%');
 
-      // Update indicators
       document.querySelectorAll('.slide-dot').forEach((d, i) => {
         d.classList.toggle('active', i === currentSlide);
       });
 
-      // Update progress bar
       document.getElementById('progressBar').style.width =
         ((currentSlide + 1) / totalSlides * 100) + '%';
 
@@ -1602,7 +1241,6 @@
     }
   }
 
-  // Scrape animation for slide 7
   function startScrapeAnimation() {
     const items = [
       { name: 'パークハイム神泉', price: '4,280万円' },
@@ -1611,14 +1249,12 @@
       { name: '横浜ベイテラス中区', price: '2,980万円' },
       { name: '池袋サンライズ', price: '3,180万円' },
     ];
-
     for (let i = 1; i <= 5; i++) {
       const nameEl = document.getElementById('scrapeItem' + i);
       const priceEl = document.getElementById('scrapePrice' + i);
       if (nameEl) nameEl.textContent = '';
       if (priceEl) priceEl.textContent = '';
     }
-
     items.forEach((item, idx) => {
       setTimeout(() => {
         const nameEl = document.getElementById('scrapeItem' + (idx + 1));
@@ -1638,48 +1274,6 @@
     });
   }
 
-  // Scoring animation for slide 8
-  function startScoringAnimation() {
-    const ruleBar = document.getElementById('ruleBar');
-    const aiBar = document.getElementById('aiBar');
-    const totalBar = document.getElementById('totalBar');
-    const ruleVal = document.getElementById('ruleScoreVal');
-    const aiVal = document.getElementById('aiScoreVal');
-    const totalVal = document.getElementById('totalScoreVal');
-    const result = document.getElementById('scoreResult');
-
-    // Reset
-    ruleBar.style.width = '0';
-    aiBar.style.width = '0';
-    totalBar.style.width = '0';
-    ruleVal.textContent = '0%';
-    aiVal.textContent = '0%';
-    totalVal.textContent = '0%';
-    result.textContent = '\u2014';
-    result.style.color = 'var(--text-light)';
-
-    setTimeout(() => {
-      ruleBar.style.width = '78%';
-      animateValue(ruleVal, 0, 78, 1500, '%');
-    }, 800);
-
-    setTimeout(() => {
-      aiBar.style.width = '85%';
-      animateValue(aiVal, 0, 85, 1500, '%');
-    }, 1600);
-
-    setTimeout(() => {
-      totalBar.style.width = '81%';
-      animateValue(totalVal, 0, 81, 1200, '%');
-    }, 2600);
-
-    setTimeout(() => {
-      result.textContent = 'MATCH';
-      result.style.color = 'var(--accent-green)';
-    }, 3800);
-  }
-
-  // Counter animation
   function startCounterAnimation(id, start, end, duration, suffix) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -1695,29 +1289,12 @@
     setTimeout(() => requestAnimationFrame(update), 500);
   }
 
-  // Generic value animator
-  function animateValue(el, start, end, duration, suffix) {
-    if (!el) return;
-    const startTime = performance.now();
-    function update(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.round(start + (end - start) * eased);
-      el.textContent = current + suffix;
-      if (progress < 1) requestAnimationFrame(update);
-    }
-    requestAnimationFrame(update);
-  }
-
-  // Keyboard controls
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
     if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
     if (e.key === 'p') toggleAutoPlay();
   });
 
-  // Init
   window.addEventListener('load', () => {
     const slide1 = document.getElementById('slide1');
     slide1.classList.add('active');
