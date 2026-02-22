@@ -3,6 +3,11 @@ import { calculateRuleScore } from "./rule-engine";
 import { calculateAIScore } from "./ai-scorer";
 import { calculateTotalScore } from "./scoring";
 import { sendNotificationEmail } from "@/lib/notifications/email";
+import { AIScoreDetail } from "@/types";
+
+const isOpenAIConfigured =
+  !!process.env.OPENAI_API_KEY &&
+  process.env.OPENAI_API_KEY !== "sk-your-openai-api-key";
 
 export async function runMatchingPipeline(): Promise<{
   matchCount: number;
@@ -22,6 +27,12 @@ export async function runMatchingPipeline(): Promise<{
   // Get all deals (for AI scoring)
   const deals = await prisma.deal.findMany();
 
+  if (!isOpenAIConfigured) {
+    console.log(
+      "[Matching] OPENAI_API_KEY not configured — using rule-based scoring only"
+    );
+  }
+
   const results: any[] = [];
   let matchCount = 0;
   let notificationsSent = 0;
@@ -35,19 +46,26 @@ export async function runMatchingPipeline(): Promise<{
         condition
       );
 
-      // Calculate AI score
-      const { score: aiScore, details: aiDetails } = await calculateAIScore(
-        property,
-        deals
-      );
+      // Calculate AI score (skip if OpenAI not configured)
+      let aiScore = 0;
+      let aiDetails: AIScoreDetail = { similarDeals: [], averageSimilarity: 0 };
+
+      if (isOpenAIConfigured) {
+        const aiResult = await calculateAIScore(property, deals);
+        aiScore = aiResult.score;
+        aiDetails = aiResult.details;
+      }
 
       // Calculate total score
-      const totalScore = calculateTotalScore(
-        ruleScore,
-        aiScore,
-        condition.ruleWeight,
-        condition.aiWeight
-      );
+      // When AI is not configured, use rule score only (full weight)
+      const totalScore = isOpenAIConfigured
+        ? calculateTotalScore(
+            ruleScore,
+            aiScore,
+            condition.ruleWeight,
+            condition.aiWeight
+          )
+        : ruleScore;
 
       // If totalScore >= condition.aiThreshold: create MatchResult in DB
       if (totalScore >= condition.aiThreshold) {

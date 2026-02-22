@@ -5,9 +5,9 @@ import { HomesScraper } from "./homes";
 import { RakumachiScraper } from "./rakumachi";
 import { KenbiyaScraper } from "./kenbiya";
 import { BaseScraper } from "./base";
-import { ScrapeResult } from "@/types";
+import { ScrapeResult, PropertySource } from "@/types";
 
-const scrapers: BaseScraper[] = [
+const allScrapers: BaseScraper[] = [
   new DummyScraper(),
   new SuumoScraper(),
   new HomesScraper(),
@@ -15,8 +15,28 @@ const scrapers: BaseScraper[] = [
   new KenbiyaScraper(),
 ];
 
+async function getEnabledSources(): Promise<PropertySource[]> {
+  try {
+    const setting = await prisma.setting.findUnique({
+      where: { key: "SCRAPE_SOURCES" },
+    });
+    if (setting) {
+      return JSON.parse(setting.value) as PropertySource[];
+    }
+  } catch {
+    // Fall through to default
+  }
+  return ["dummy"];
+}
+
 export async function runAllScrapers(): Promise<ScrapeResult[]> {
-  // Check settings for enabled sources, default to just dummy
+  const enabledSources = await getEnabledSources();
+  const scrapers = allScrapers.filter((s) => enabledSources.includes(s.source));
+
+  console.log(
+    `[Scrapers] Running ${scrapers.length} scraper(s): ${enabledSources.join(", ")}`
+  );
+
   const results: ScrapeResult[] = [];
 
   for (const scraper of scrapers) {

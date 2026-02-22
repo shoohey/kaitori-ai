@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, BarChart3 } from "lucide-react";
 
 export default async function PropertyDetailPage({
   params,
@@ -104,6 +104,28 @@ export default async function PropertyDetailPage({
         <ArrowLeft className="w-4 h-4" />
         物件一覧に戻る
       </Link>
+
+      {/* Action Buttons */}
+      <div className="flex gap-3">
+        <Link
+          href={`/dashboard/analysis/${property.id}`}
+          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+        >
+          <BarChart3 className="w-4 h-4" />
+          投資分析レポート
+        </Link>
+        {property.sourceUrl && (
+          <a
+            href={property.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium"
+          >
+            <ExternalLink className="w-4 h-4" />
+            掲載ページを開く
+          </a>
+        )}
+      </div>
 
       {/* Property details */}
       <div className="bg-white rounded-lg shadow">

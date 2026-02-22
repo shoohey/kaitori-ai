@@ -10,6 +10,7 @@ import {
   Bell,
   Settings,
   Home,
+  BarChart3,
 } from "lucide-react";
 
 const navItems = [
@@ -17,6 +18,7 @@ const navItems = [
   { href: "/dashboard/properties", label: "物件一覧", icon: Building2 },
   { href: "/dashboard/conditions", label: "検索条件", icon: Filter },
   { href: "/dashboard/deals", label: "過去取引", icon: Handshake },
+  { href: "/dashboard/analysis", label: "投資分析", icon: BarChart3 },
   { href: "/dashboard/notifications", label: "通知履歴", icon: Bell },
   { href: "/dashboard/settings", label: "設定", icon: Settings },
 ];
