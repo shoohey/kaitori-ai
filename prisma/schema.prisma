@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Property {
+  id          String   @id @default(cuid())
+  source      String
+  sourceUrl   String?  @unique
+  title       String
+  price       Float?
+  pricePerSqm Float?
+  area        String?
+  address     String?
+  propertyType String?
+  structure   String?
+  buildYear   Int?
+  landArea    Float?
+  buildingArea Float?
+  floors      Int?
+  units       Int?
+  grossYield  Float?
+  netYield    Float?
+  occupancyRate Float?
+  description String?
+  imageUrls   String?
+  embedding   String?
+  status      String   @default("new")
+  scrapedAt   DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  matchResults MatchResult[]
+}
+
+model Condition {
+  id            String   @id @default(cuid())
+  name          String
+  areas         String?
+  propertyTypes String?
+  structures    String?
+  minPrice      Float?
+  maxPrice      Float?
+  minYield      Float?
+  maxYield      Float?
+  maxBuildYear  Int?
+  minBuildYear  Int?
+  minLandArea   Float?
+  maxLandArea   Float?
+  minBuildingArea Float?
+  maxBuildingArea Float?
+  ruleWeight    Float    @default(0.6)
+  aiWeight      Float    @default(0.4)
+  aiThreshold   Float    @default(0.5)
+  notifyEmail   String?
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  matchResults MatchResult[]
+}
+
+model Deal {
+  id            String   @id @default(cuid())
+  title         String
+  area          String?
+  address       String?
+  propertyType  String?
+  structure     String?
+  buildYear     Int?
+  landArea      Float?
+  buildingArea  Float?
+  purchasePrice Float?
+  renovationCost Float?
+  salePrice     Float?
+  profitRate    Float?
+  grossYield    Float?
+  description   String?
+  embedding     String?
+  dealDate      DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model MatchResult {
+  id            String   @id @default(cuid())
+  propertyId    String
+  conditionId   String
+  ruleScore     Float
+  aiScore       Float
+  totalScore    Float
+  ruleDetails   String?
+  aiDetails     String?
+  status        String   @default("pending")
+  notifiedAt    DateTime?
+  createdAt     DateTime @default(now())
+
+  property  Property  @relation(fields: [propertyId], references: [id])
+  condition Condition @relation(fields: [conditionId], references: [id])
+}
+
+model Notification {
+  id            String   @id @default(cuid())
+  matchResultId String?
+  email         String
+  subject       String
+  body          String
+  status        String   @default("sent")
+  sentAt        DateTime @default(now())
+}
+
+model ScrapeLog {
+  id          String   @id @default(cuid())
+  source      String
+  status      String
+  propertiesFound Int  @default(0)
+  newProperties   Int  @default(0)
+  errorMessage String?
+  startedAt   DateTime @default(now())
+  completedAt DateTime?
+}
+
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+}
