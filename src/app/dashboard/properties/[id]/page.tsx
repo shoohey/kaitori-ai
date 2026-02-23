@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, BarChart3 } from "lucide-react";
+import { ArrowLeft, ExternalLink, BarChart3, Calculator } from "lucide-react";
 
 export default async function PropertyDetailPage({
   params,
@@ -113,6 +113,13 @@ export default async function PropertyDetailPage({
         >
           <BarChart3 className="w-4 h-4" />
           投資分析レポート
+        </Link>
+        <Link
+          href={`/dashboard/simulation/${property.id}`}
+          className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors text-sm font-medium"
+        >
+          <Calculator className="w-4 h-4" />
+          収益シミュレーション
         </Link>
         {property.sourceUrl && (
           <a

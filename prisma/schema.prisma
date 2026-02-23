@@ -35,6 +35,7 @@ model Property {
   updatedAt   DateTime @updatedAt
 
   matchResults MatchResult[]
+  simulations  Simulation[]
 }
 
 model Condition {
@@ -128,4 +129,26 @@ model Setting {
   id    String @id @default(cuid())
   key   String @unique
   value String
+}
+
+model Simulation {
+  id              String   @id @default(cuid())
+  propertyId      String
+  askingPrice     Float
+  results         String
+  comparablesData String?
+  createdAt       DateTime @default(now())
+  property        Property @relation(fields: [propertyId], references: [id])
+}
+
+model MLITCache {
+  id             String   @id @default(cuid())
+  prefectureCode Int
+  cityCode       String   @default("")
+  year           Int
+  propertyType   String   @default("")
+  responseData   String
+  fetchedAt      DateTime @default(now())
+
+  @@unique([prefectureCode, cityCode, year, propertyType])
 }
